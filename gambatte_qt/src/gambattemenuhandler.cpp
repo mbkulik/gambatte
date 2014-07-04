@@ -29,6 +29,12 @@
 #include <QFileInfo>
 #include <QSettings>
 #include <QtGui>
+#include <QMenu>
+#include <QMenuBar>
+#include <QMessageBox>
+#include <QFileDialog>
+#include <QApplication>
+#include <QDesktopWidget>
 #include <iostream>
 
 namespace {
