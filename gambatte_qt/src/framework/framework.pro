@@ -45,7 +45,7 @@ HEADERS += \
 	$$COMMONPATH/resample/*.h \
 	$$COMMONPATH/*.h
 CONFIG += qt thread
-QT += opengl
+QT += opengl x11extras
 INCLUDEPATH += framework/include
 INCLUDEPATH += framework/src/SDL_Joystick/include
 INCLUDEPATH += $$COMMONPATH
