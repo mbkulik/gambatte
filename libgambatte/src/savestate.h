@@ -1,21 +1,21 @@
-/***************************************************************************
- *   Copyright (C) 2008 by Sindre Aamås                                    *
- *   sinamas@users.sourceforge.net                                         *
- *                                                                         *
- *   This program is free software; you can redistribute it and/or modify  *
- *   it under the terms of the GNU General Public License version 2 as     *
- *   published by the Free Software Foundation.                            *
- *                                                                         *
- *   This program is distributed in the hope that it will be useful,       *
- *   but WITHOUT ANY WARRANTY; without even the implied warranty of        *
- *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the         *
- *   GNU General Public License version 2 for more details.                *
- *                                                                         *
- *   You should have received a copy of the GNU General Public License     *
- *   version 2 along with this program; if not, write to the               *
- *   Free Software Foundation, Inc.,                                       *
- *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
- ***************************************************************************/
+//
+//   Copyright (C) 2008 by sinamas <sinamas at users.sourceforge.net>
+//
+//   This program is free software; you can redistribute it and/or modify
+//   it under the terms of the GNU General Public License version 2 as
+//   published by the Free Software Foundation.
+//
+//   This program is distributed in the hope that it will be useful,
+//   but WITHOUT ANY WARRANTY; without even the implied warranty of
+//   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+//   GNU General Public License version 2 for more details.
+//
+//   You should have received a copy of the GNU General Public License
+//   version 2 along with this program; if not, write to the
+//   Free Software Foundation, Inc.,
+//   51 Franklin St, Fifth Floor, Boston, MA  02110-1301, USA.
+//
+
 #ifndef SAVESTATE_H
 #define SAVESTATE_H
 
@@ -54,7 +54,7 @@ struct SaveState {
 		unsigned char f;
 		unsigned char h;
 		unsigned char l;
-		bool skip;
+		unsigned char /*bool*/ skip;
 	} cpu;
 
 	struct Mem {
@@ -74,11 +74,11 @@ struct SaveState {
 		unsigned short dmaDestination;
 		unsigned char rambank;
 		unsigned char oamDmaPos;
-		bool IME;
-		bool halted;
-		bool enableRam;
-		bool rambankMode;
-		bool hdmaTransfer;
+		unsigned char /*bool*/ IME;
+		unsigned char /*bool*/ halted;
+		unsigned char /*bool*/ enableRam;
+		unsigned char /*bool*/ rambankMode;
+		unsigned char /*bool*/ hdmaTransfer;
 	} mem;
 
 	struct PPU {
@@ -112,8 +112,8 @@ struct SaveState {
 		unsigned char oldWy;
 		unsigned char winDrawState;
 		unsigned char wscx;
-		bool weMaster;
-		bool pendingLcdstatIrq;
+		unsigned char /*bool*/ weMaster;
+		unsigned char /*bool*/ pendingLcdstatIrq;
 	} ppu;
 
 	struct SPU {
@@ -121,6 +121,7 @@ struct SaveState {
 			unsigned long nextPosUpdate;
 			unsigned char nr3;
 			unsigned char pos;
+			unsigned char /*bool*/ high;
 		};
 
 		struct Env {
@@ -138,13 +139,13 @@ struct SaveState {
 				unsigned long counter;
 				unsigned short shadow;
 				unsigned char nr0;
-				bool negging;
+				unsigned char /*bool*/ negging;
 			} sweep;
 			Duty duty;
 			Env env;
 			LCounter lcounter;
 			unsigned char nr4;
-			bool master;
+			unsigned char /*bool*/ master;
 		} ch1;
 
 		struct {
@@ -152,7 +153,7 @@ struct SaveState {
 			Env env;
 			LCounter lcounter;
 			unsigned char nr4;
-			bool master;
+			unsigned char /*bool*/ master;
 		} ch2;
 
 		struct {
@@ -164,7 +165,7 @@ struct SaveState {
 			unsigned char nr4;
 			unsigned char wavePos;
 			unsigned char sampleBuf;
-			bool master;
+			unsigned char /*bool*/ master;
 		} ch3;
 
 		struct {
@@ -175,7 +176,7 @@ struct SaveState {
 			Env env;
 			LCounter lcounter;
 			unsigned char nr4;
-			bool master;
+			unsigned char /*bool*/ master;
 		} ch4;
 
 		unsigned long cycleCounter;
@@ -189,7 +190,7 @@ struct SaveState {
 		unsigned char dataH;
 		unsigned char dataM;
 		unsigned char dataS;
-		bool lastLatchData;
+		unsigned char /*bool*/ lastLatchData;
 	} rtc;
 };
 
